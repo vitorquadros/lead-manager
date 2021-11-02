@@ -54,8 +54,7 @@ export default defineComponent({
   },
 
   methods: {
-    handleSubmit() {
-      const users = JSON.parse(localStorage.getItem('users') || '[]');
+    isValid(users) {
       const userExists = users.find(
         ({ username }) => username == this.user.username
       );
@@ -85,7 +84,13 @@ export default defineComponent({
 
       if (this.errors.length > 0) {
         return false;
-      }
+      } else return true;
+    },
+
+    handleSubmit() {
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+      if (!this.isValid(users)) return false;
 
       const newUser = {
         id: this.user.id,
