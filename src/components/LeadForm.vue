@@ -96,7 +96,7 @@ export default defineComponent({
         opportunities: this.selected,
       };
       const leads = JSON.parse(
-        localStorage.getItem('Cliente em Potencial') || '{}'
+        localStorage.getItem('Cliente em Potencial') || '[]'
       );
       console.log(leads);
       leads.push(newLead);

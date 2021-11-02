@@ -54,7 +54,7 @@ export default defineComponent({
   },
 
   created() {
-    this.list = JSON.parse(localStorage.getItem(this.blockName) || '{}');
+    this.list = JSON.parse(localStorage.getItem(this.blockName) || '[]');
   },
 
   methods: {
@@ -106,11 +106,11 @@ h3 {
   display: none;
   padding: 0 3px;
   transition: 0.5s;
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 #finished:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 #card:hover > #finished {
