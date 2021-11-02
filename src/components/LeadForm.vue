@@ -53,16 +53,16 @@ export default defineComponent({
         email: '',
       },
       opportunities: ['RPM', 'Produto Digital', 'Analytics', 'BPM'],
-      selected: [],
-      Toast: this.$swal.mixin({
+      selected: [] as string[],
+      Toast: (<any>this).$swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', this.$swal.stopTimer);
-          toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+          toast.addEventListener('mouseenter', (<any>this).$swal.stopTimer);
+          toast.addEventListener('mouseleave', (<any>this).$swal.resumeTimer);
         },
       }),
     };
@@ -71,12 +71,12 @@ export default defineComponent({
   computed: {
     selectAll: {
       get() {
-        return this.opportunities
-          ? this.selected.length == this.opportunities.length
+        return (<any>this).opportunities
+          ? (<any>this).selected.length == (<any>this).opportunities.length
           : false;
       },
       set(value) {
-        let selected = [];
+        let selected = [] as string[];
 
         if (value) {
           this.opportunities.forEach((oportunity) => {
@@ -95,9 +95,12 @@ export default defineComponent({
         ...this.lead,
         opportunities: this.selected,
       };
-      const leads = JSON.parse(localStorage.getItem('Clientes em Potencial'));
+      const leads = JSON.parse(
+        localStorage.getItem('Cliente em Potencial') || '{}'
+      );
+      console.log(leads);
       leads.push(newLead);
-      localStorage.setItem('Clientes em Potencial', JSON.stringify(leads));
+      localStorage.setItem('Cliente em Potencial', JSON.stringify(leads));
 
       this.$router.push('/');
 

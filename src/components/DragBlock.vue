@@ -39,22 +39,22 @@ export default defineComponent({
   data() {
     return {
       list: [],
-      Toast: this.$swal.mixin({
+      Toast: (<any>this).$swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', this.$swal.stopTimer);
-          toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+          toast.addEventListener('mouseenter', (<any>this).$swal.stopTimer);
+          toast.addEventListener('mouseleave', (<any>this).$swal.resumeTimer);
         },
       }),
     };
   },
 
   created() {
-    this.list = JSON.parse(localStorage.getItem(this.blockName));
+    this.list = JSON.parse(localStorage.getItem(this.blockName) || '{}');
   },
 
   methods: {

@@ -1,20 +1,20 @@
 <template>
   <div id="container">
-    <Block
+    <DragBlock
       blockName="Cliente em Potencial"
-      :groupConfig="{ name: 'first-block', put: false, pull: ['second-block'] }"
+      :groupConfig="{ name: 'firstBlock', put: false, pull: ['secondBlock'] }"
     />
-    <Block
+    <DragBlock
       blockName="Dados Confirmados"
       :groupConfig="{
-        name: 'second-block',
-        put: ['first-block'],
-        pull: ['third-block'],
+        name: 'secondBlock',
+        put: ['firstBlock'],
+        pull: ['thirdBlock'],
       }"
     />
-    <Block
+    <DragBlock
       blockName="Reunião Agendada"
-      :groupConfig="{ name: 'third-block', pull: false, put: ['second-block'] }"
+      :groupConfig="{ name: 'thirdBlock', pull: false, put: ['secondBlock'] }"
       :finished="true"
     />
   </div>
@@ -22,10 +22,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Block from '../components/Block.vue';
+import DragBlock from '@/components/DragBlock.vue';
 
 export default defineComponent({
-  components: { Block },
+  components: { DragBlock },
 });
 </script>
 
