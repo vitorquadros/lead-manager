@@ -31,5 +31,35 @@ export default defineComponent({
   name: 'DragBlock',
   components: { draggable, Card },
   props: ['blockName', 'groupConfig', 'finished'],
+
+  data() {
+    return {
+      list: [],
+    };
+  },
+
+  created() {
+    this.list = JSON.parse(localStorage.getItem(this.blockName));
+  },
+
+  methods: {
+    handleChange() {
+      localStorage.setItem(this.blockName, JSON.stringify(this.list));
+    },
+    handleDelete(element) {
+      if (
+        confirm(
+          'Tem certeza que deseja finalizar este lead? O lead será removido da lista permanentemente.'
+        )
+      ) {
+        this.list = this.list.filter(({ id }) => id != element.id);
+        this.handleChange();
+        this.Toast.fire({
+          icon: 'success',
+          title: 'Lead finalizado com sucesso!',
+        });
+      }
+    },
+  },
 });
 </script>
