@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Wrapper>
+    <Wrapper class="wrapper">
       <Header pageName="Novo Lead" />
       <LeadForm />
       <BackLink page="/">Voltar para leads</BackLink>
@@ -20,4 +20,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  max-width: 80rem;
+}
+</style>

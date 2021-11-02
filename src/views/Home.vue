@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Wrapper>
+    <Wrapper class="wrapper">
       <Header pageName="Painel de Leads" />
       <ButtonAdd page="register">Novo Usuário (+)</ButtonAdd>
       <ButtonAdd page="new-lead">Novo Lead (+)</ButtonAdd>
@@ -26,3 +26,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.wrapper {
+  max-width: 80rem;
+}
+</style>

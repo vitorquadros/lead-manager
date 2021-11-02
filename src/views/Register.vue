@@ -1,7 +1,7 @@
 <template>
-  <Wrapper>
+  <Wrapper class="wrapper">
     <div id="wrap">
-      <Title />
+      <Title class="title" />
       <RegisterForm />
     </div>
 
@@ -26,8 +26,17 @@ export default defineComponent({
   font-size: 1.6rem;
 }
 
+.wrapper {
+  max-width: 40rem;
+}
+
+.title {
+  margin-bottom: 3rem;
+}
+
 #wrap {
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
