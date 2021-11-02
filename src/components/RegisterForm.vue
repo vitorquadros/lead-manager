@@ -31,6 +31,18 @@ export default defineComponent({
         password: '',
         passwordConfirm: '',
       },
+
+      Toast: (<any>this).$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', (<any>this).$swal.stopTimer);
+          toast.addEventListener('mouseleave', (<any>this).$swal.resumeTimer);
+        },
+      }),
     };
   },
 
@@ -55,6 +67,11 @@ export default defineComponent({
       localStorage.setItem('users', JSON.stringify(users));
 
       this.$router.push('/');
+
+      this.Toast.fire({
+        icon: 'success',
+        title: 'Novo usuário cadastrado com sucesso!',
+      });
     },
 
     ID() {

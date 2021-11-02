@@ -28,6 +28,7 @@ export default defineComponent({
 
 .wrapper {
   max-width: 40rem;
+  border-radius: 0.5rem;
 }
 
 .title {
