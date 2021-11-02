@@ -88,6 +88,29 @@ export default defineComponent({
       },
     },
   },
+
+  methods: {
+    handleSubmit() {
+      const newLead = {
+        ...this.lead,
+        opportunities: this.selected,
+      };
+      const leads = JSON.parse(localStorage.getItem('Clientes em Potencial'));
+      leads.push(newLead);
+      localStorage.setItem('Clientes em Potencial', JSON.stringify(leads));
+
+      this.$router.push('/');
+
+      this.Toast.fire({
+        icon: 'success',
+        title: 'Lead criado com sucesso!',
+      });
+    },
+
+    ID() {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    },
+  },
 });
 </script>
 
