@@ -53,6 +53,7 @@ export default defineComponent({
         email: '',
       },
       opportunities: ['RPM', 'Produto Digital', 'Analytics', 'BPM'],
+      errors: [] as string[],
       selected: [] as string[],
       Toast: (<any>this).$swal.mixin({
         toast: true,
@@ -90,15 +91,38 @@ export default defineComponent({
   },
 
   methods: {
+    isValid(newLead, leads) {
+      this.errors = [];
+
+      if (newLead.name == '' || newLead.tel == '' || newLead.email == '') {
+        this.errors.push('Há campos não preenchidos');
+      }
+
+      if (newLead.selected.length < 1) {
+        this.errors.push('O lead deve ter pelo menos uma oportunidade');
+      }
+
+      const leadExists = leads.find(({ name }) => name == this.lead.name);
+
+      if (leadExists) this.errors.push('Já existe um lead com o nome inserido');
+
+      if (this.errors.length > 0) {
+        return false;
+      } else return true;
+    },
+
     handleSubmit() {
       const newLead = {
         ...this.lead,
         opportunities: this.selected,
       };
+
       const leads = JSON.parse(
         localStorage.getItem('Cliente em Potencial') || '[]'
       );
-      console.log(leads);
+
+      this.isValid(newLead, leads);
+
       leads.push(newLead);
       localStorage.setItem('Cliente em Potencial', JSON.stringify(leads));
 
