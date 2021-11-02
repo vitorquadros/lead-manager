@@ -11,6 +11,9 @@
       <template #item="{ element }">
         <Card id="card">
           {{ element.name }}
+          <span id="finished" v-if="finished" @click="handleDelete(element)"
+            >✔</span
+          >
         </Card>
       </template>
     </draggable>
