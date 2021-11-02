@@ -4,6 +4,7 @@
     <draggable
       v-model="list"
       item-key="id"
+      ghost-class="ghost"
       @change="handleChange"
       @add="handleChange"
       @remove="handleChange"
@@ -76,6 +77,17 @@ export default defineComponent({
       }
     },
   },
+
+  computed: {
+    dragOptions() {
+      return {
+        animation: 200,
+        group: 'firstLead',
+        disabled: false,
+        ghostClass: 'ghost',
+      };
+    },
+  },
 });
 </script>
 
@@ -115,5 +127,11 @@ h3 {
 
 #card:hover > #finished {
   display: inline;
+}
+
+.ghost {
+  opacity: 0.5;
+  background: gray;
+  color: gray;
 }
 </style>
