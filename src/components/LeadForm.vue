@@ -26,7 +26,31 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-export default defineComponent({});
+export default defineComponent({
+  data() {
+    return {
+      lead: {
+        id: this.ID(),
+        name: '',
+        tel: '',
+        email: '',
+      },
+      opportunities: ['RPM', 'Produto Digital', 'Analytics', 'BPM'],
+      selected: [],
+      Toast: this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', this.$swal.stopTimer);
+          toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+        },
+      }),
+    };
+  },
+});
 </script>
 
 <style scoped></style>
