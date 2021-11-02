@@ -1,6 +1,7 @@
 <template>
   <Wrapper>
     <Title />
+    <RegisterForm />
   </Wrapper>
 </template>
 
@@ -8,9 +9,10 @@
 import { defineComponent } from 'vue';
 import Wrapper from '@/components/Utils/Wrapper.vue';
 import Title from '@/components/Title.vue';
+import RegisterForm from '@/components/RegisterForm.vue';
 
 export default defineComponent({
-  components: { Wrapper, Title },
+  components: { Wrapper, Title, RegisterForm },
 });
 </script>
 
