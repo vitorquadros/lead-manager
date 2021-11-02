@@ -114,4 +114,118 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+* {
+  font-size: 1.4rem;
+}
+
+#container {
+  min-height: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem 2rem;
+}
+
+#container-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-info {
+  width: 40%;
+}
+
+#form-oportunity {
+  width: 40%;
+}
+
+button {
+  width: 40%;
+  align-self: flex-end;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 12px 0;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* LEAD INFO */
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-container label {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  height: 25px;
+  padding-left: 5px;
+  border: 1px solid black;
+}
+
+/* OPORTUNITY */
+
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+
+td {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+tr:first-child {
+  background-color: gray;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+tr:nth-child(2),
+tr:nth-child(4) {
+  background-color: lightgray;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-container label {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  height: 25px;
+  padding-left: 5px;
+  border: 1px solid black;
+}
+</style>
