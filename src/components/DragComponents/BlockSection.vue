@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import DragBlock from '@/components/DragBlock.vue';
+import DragBlock from '@/components/DragComponents/DragBlock.vue';
 
 export default defineComponent({
   components: { DragBlock },

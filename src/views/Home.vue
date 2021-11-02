@@ -11,10 +11,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from '@/components/Header.vue';
+import Header from '@/components/Header/Header.vue';
 import Wrapper from '@/components/Utils/Wrapper.vue';
-import ButtonAdd from '@/components/ButtonAdd.vue';
-import BlockSection from '@/components/BlockSection.vue';
+import ButtonAdd from '@/components/Utils/ButtonAdd.vue';
+import BlockSection from '@/components/DragComponents/BlockSection.vue';
 
 export default defineComponent({
   name: 'Home',

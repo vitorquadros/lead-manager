@@ -11,9 +11,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Wrapper from '@/components/Utils/Wrapper.vue';
-import Header from '@/components/Header.vue';
-import BackLink from '@/components/BackLink.vue';
-import LeadForm from '@/components/LeadForm.vue';
+import Header from '@/components/Header/Header.vue';
+import BackLink from '@/components/Utils/BackLink.vue';
+import LeadForm from '@/components/Forms/LeadForm.vue';
 
 export default defineComponent({
   components: { Header, Wrapper, BackLink, LeadForm },

@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Error from '@/components/Error.vue';
+import Error from '@/components/Utils/Error.vue';
 
 export default defineComponent({
   components: { Error },

@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import draggable from 'vuedraggable';
-import Card from '@/components/Card.vue';
+import Card from '@/components/DragComponents/Card.vue';
 
 import { defineComponent } from 'vue';
 
