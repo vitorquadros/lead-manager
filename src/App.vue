@@ -13,6 +13,6 @@
 
 html {
   font-size: 62.5%;
-  background-color: #96b9cf;
+  background-color: #6296b7;
 }
 </style>
