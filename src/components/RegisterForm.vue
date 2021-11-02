@@ -3,20 +3,66 @@
     <form>
       <div class="input-container">
         <label>Usuário *</label>
-        <input type="text" />
+        <input v-model="user.username" type="text" />
       </div>
       <div class="input-container">
         <label>Password *</label>
-        <input type="password" />
+        <input v-model="user.password" type="password" />
       </div>
       <div class="input-container">
         <label>Confirmação Password *</label>
-        <input type="password" />
+        <input v-model="user.passwordConfirm" type="password" />
       </div>
-      <button type="submit">Registrar</button>
+      {{ user.username }}
+      <button @click="handleSubmit">Registrar</button>
     </form>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      user: {
+        id: this.ID(),
+        username: '',
+        password: '',
+        passwordConfirm: '',
+      },
+    };
+  },
+
+  methods: {
+    handleSubmit() {
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const userExists = users.find(
+        ({ username }) => username == this.user.username
+      );
+
+      if (userExists) return false;
+      if (this.user.password != this.user.passwordConfirm) return false;
+
+      const newUser = {
+        id: this.user.id,
+        username: this.user.username,
+        password: this.user.password,
+      };
+
+      users.push(newUser);
+
+      localStorage.setItem('users', JSON.stringify(users));
+
+      this.$router.push('/');
+    },
+
+    ID() {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    },
+  },
+});
+</script>
 
 <style scoped>
 #register-container {
