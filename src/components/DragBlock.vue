@@ -78,3 +78,42 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+* {
+  font-size: 1.6rem;
+}
+
+#container {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1.95rem;
+  min-width: 20rem;
+  padding: 1rem 1rem;
+  border: 1px solid;
+}
+
+h3 {
+  text-align: center;
+}
+
+#finished {
+  color: green;
+  font-size: 2.5rem;
+  transform: translateY(-5px);
+  float: right;
+  display: none;
+  padding: 0 3px;
+  transition: 0.5s;
+  opacity: 50%;
+}
+
+#finished:hover {
+  opacity: 100%;
+}
+
+#card:hover > #finished {
+  display: inline;
+}
+</style>
