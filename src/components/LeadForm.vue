@@ -67,6 +67,27 @@ export default defineComponent({
       }),
     };
   },
+
+  computed: {
+    selectAll: {
+      get() {
+        return this.opportunities
+          ? this.selected.length == this.opportunities.length
+          : false;
+      },
+      set(value) {
+        let selected = [];
+
+        if (value) {
+          this.opportunities.forEach((oportunity) => {
+            selected.push(oportunity);
+          });
+        }
+
+        this.selected = selected;
+      },
+    },
+  },
 });
 </script>
 
