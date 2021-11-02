@@ -54,5 +54,10 @@
   padding: 12px 0;
   margin-top: 10px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+#register-container button:hover {
+  background-color: lightgray;
 }
 </style>
