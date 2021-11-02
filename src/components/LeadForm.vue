@@ -16,6 +16,23 @@
             <input v-model="lead.email" type="email" />
           </div>
         </div>
+
+        <div id="form-oportunity">
+          <label>Oportunidades *</label>
+          <table>
+            <tr>
+              <th><input type="checkbox" v-model="selectAll" /></th>
+              <th></th>
+            </tr>
+
+            <tr v-for="oportunity in opportunities" :key="oportunity">
+              <td>
+                <input type="checkbox" v-model="selected" :value="oportunity" />
+              </td>
+              <td colspan="4">{{ oportunity }}</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
       <button @click="handleSubmit">Salvar</button>
