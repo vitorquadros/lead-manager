@@ -16,6 +16,8 @@
       {{ user.username }}
       <button @click="handleSubmit">Registrar</button>
     </form>
+
+    <div id="errors"></div>
   </div>
 </template>
 
@@ -53,8 +55,28 @@ export default defineComponent({
         ({ username }) => username == this.user.username
       );
 
-      if (userExists) return false;
-      if (this.user.password != this.user.passwordConfirm) return false;
+      let errors = [] as string[];
+      const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+
+      if (
+        this.user.username == '' ||
+        this.user.password == '' ||
+        this.user.passwordConfirm == ''
+      ) {
+        errors.push('Há campos não preenchidos');
+      }
+
+      if (this.user.password != this.user.passwordConfirm) {
+        errors.push('As senhas não coincidem');
+      }
+
+      if (userExists) errors.push('O usuário ja existe');
+
+      if (!this.user.password.match(regex)) {
+        errors.push(
+          'A senha deve possuir ao menos 8 caracteres, contendo ao menos, um caracter especial, um caracter numérico e um caracter alfanumérico'
+        );
+      }
 
       const newUser = {
         id: this.user.id,
@@ -122,5 +144,30 @@ export default defineComponent({
 
 #register-container button:hover {
   background-color: lightgray;
+}
+
+#errors {
+  background-color: darkred;
+  font-size: 1.4rem;
+  align-self: center;
+  text-align: center;
+  width: 30rem;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 1rem;
+}
+
+#errors p {
+  margin: 0;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+#errors span {
+  display: block;
+}
+
+#errors span:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 </style>
