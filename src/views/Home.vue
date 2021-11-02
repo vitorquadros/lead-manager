@@ -4,6 +4,7 @@
       <Header pageName="Painel de Leads" />
       <ButtonAdd page="register">Novo Usuário (+)</ButtonAdd>
       <ButtonAdd page="new-lead">Novo Lead (+)</ButtonAdd>
+      <BlockSection />
     </Wrapper>
   </div>
 </template>
@@ -12,7 +13,8 @@
 import { defineComponent } from 'vue';
 import Header from '@/components/Header.vue';
 import Wrapper from '@/components/Utils/Wrapper.vue';
-import ButtonAdd from '@/components/Utils/ButtonAdd.vue';
+import ButtonAdd from '@/components/ButtonAdd.vue';
+import BlockSection from '@/components/BlockSection.vue';
 
 export default defineComponent({
   name: 'Home',
@@ -20,6 +22,7 @@ export default defineComponent({
     Header,
     Wrapper,
     ButtonAdd,
+    BlockSection,
   },
 });
 </script>
