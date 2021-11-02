@@ -37,13 +37,20 @@
 
       <button @click="handleSubmit">Salvar</button>
     </form>
+
+    <div class="error">
+      <Error v-if="errors.length" :errors="errors" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Error from '@/components/Error.vue';
 
 export default defineComponent({
+  components: { Error },
+
   data() {
     return {
       lead: {
@@ -98,7 +105,7 @@ export default defineComponent({
         this.errors.push('Há campos não preenchidos');
       }
 
-      if (newLead.selected.length < 1) {
+      if (newLead.opportunities.length < 1) {
         this.errors.push('O lead deve ter pelo menos uma oportunidade');
       }
 
@@ -121,7 +128,7 @@ export default defineComponent({
         localStorage.getItem('Cliente em Potencial') || '[]'
       );
 
-      this.isValid(newLead, leads);
+      if (!this.isValid(newLead, leads)) return false;
 
       leads.push(newLead);
       localStorage.setItem('Cliente em Potencial', JSON.stringify(leads));
@@ -254,5 +261,11 @@ tr:nth-child(4) {
   height: 25px;
   padding-left: 5px;
   border: 1px solid black;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 </style>
