@@ -7,6 +7,7 @@
       @change="handleChange"
       @add="handleChange"
       @remove="handleChange"
+      :group="groupConfig"
     >
       <template #item="{ element }">
         <Card id="card">
