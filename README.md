@@ -12,7 +12,7 @@
 
 # :question: Como testar
 
-Você pode testar a aplicação [neste link](https://lead-manager-mz6ioyooz-vitorquadros.vercel.app/) ou seguindo os passos abaixo para rodar localmente:
+Você pode testar a aplicação [neste link](https://lead-manager.vercel.app/) ou seguindo os passos abaixo para rodar localmente:
 
 1. Clone o repositório para sua máquina
 2. Tenha certeza de que o [node](https://github.com/nodejs/node) e o [npm](https://github.com/npm/npm) estão instalados na sua máquina
