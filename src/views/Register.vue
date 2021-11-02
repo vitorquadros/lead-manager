@@ -1,10 +1,12 @@
 <template>
   <Wrapper>
-    <Title />
-    <RegisterForm />
-  </Wrapper>
+    <div id="wrap">
+      <Title />
+      <RegisterForm />
+    </div>
 
-  <BackLink page="/">Voltar para leads</BackLink>
+    <BackLink page="/">Voltar para leads</BackLink>
+  </Wrapper>
 </template>
 
 <script lang="ts">
@@ -19,4 +21,15 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+* {
+  font-size: 1.6rem;
+}
+
+#wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
